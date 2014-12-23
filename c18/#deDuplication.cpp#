@@ -1,0 +1,15 @@
+#include <iostream>
+#include "md5.h"
+#include <fstream>
+
+
+int main(int argc, char ** argv){
+  //output is a shell script
+  //print #!/bin/bash
+  std::ofstream f("deduplication.sh");
+  f << "#!bin/bash"<< std::endl;
+  //print lines of a shell script to standard output
+  //print a comment what file it is removing, and what file it is a duplicate of
+  //print an "rm" ocmmand which would remove the file
+  
+}

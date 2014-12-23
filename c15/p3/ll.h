@@ -1,0 +1,268 @@
+#ifndef _LL_H_
+#define _LL_H_
+#include <cstdlib>
+#include <exception>
+#include <assert.h>
+#include "function.h"
+#include <iostream>
+
+class WrongIndex : public std::exception{
+  virtual const char* what() const throw(){
+    return "Wrong Index";
+  } 
+}; 
+
+template<typename T>
+class LinkedList{
+ private:
+  //A private inner class Node for its nodes
+  class Node{
+  public:
+    T data;
+    Node * next;
+    Node * previous;
+  Node(const T & d, Node * n, Node * p): data(d), next(n), previous(p){}
+    ~Node(){}
+  };
+  //Two private Node *s: one for the head of the list and one for the tail of the list.
+  Node * head;
+  Node * tail;
+  int size;
+ public:
+  //A public inner class iterator
+  class iterator{
+  private:
+    Node * curr;
+  public:
+    //default constructor
+  iterator(): curr(NULL){}
+    //copy constructor
+  iterator(Node * n): curr(n){}
+    //destructor
+    ~iterator(){}
+    //overload operators
+    //assignment operator
+    iterator & operator=(const iterator & rhs){
+      curr = rhs.curr;
+      return * this;
+    }
+    T & operator*() {
+      return curr->data;
+    }
+    bool operator!=(const iterator & rhs) const{
+      return curr != rhs.curr;
+    }
+    iterator & operator++(){
+      curr = curr->next;
+      return * this;
+    }
+  };
+
+  //default constructor
+ LinkedList(): head(NULL), tail(NULL), size(0){}
+  //copy constructor
+  LinkedList(const LinkedList<T> & rhs){
+    head = NULL;
+    size = rhs.size;
+    if (rhs.size == 0) {
+      return;
+    }
+    Node ** newNode = new Node *[rhs.size];
+    for (int i = 0; i < rhs.size; i++){
+      newNode[i] = new Node(rhs[i], NULL, NULL);
+    }
+    if (size > 1){ 
+      newNode[0]->next = newNode[1];
+      newNode[rhs.size - 1]->previous = newNode[rhs.size - 2];
+      for (int i = 1; i < rhs.size - 1; i++){
+	newNode[i]->next = newNode[i + 1];
+	newNode[i] ->previous = newNode[i - 1];
+      }
+    }
+    head = newNode[0];
+    tail = newNode[rhs.size - 1];
+    delete[] newNode;
+  }
+  
+  void addFront(const T &item){
+    //adds the item to the front
+    if (head == NULL){
+      head = new Node(item, NULL, NULL);
+      tail = head;
+    }
+    else{
+      Node * newNode = new Node(item, head, NULL);
+      //Node * newNode = new Node();
+      //newNode->data = item;
+      //newNode->next = head;
+      //newNode->previous = NULL;
+      head->previous = newNode;
+      head = newNode;
+    }
+    size++;
+  }
+  void addBack(const T &item){
+    //adds the item to the back
+    if (tail == NULL){
+      tail = new Node(item, NULL, NULL);
+      head = tail;
+    }
+    else{
+      Node * newNode = new Node(item, NULL, tail);
+      //Node * newNode = new Node();
+      //newNode->data = item;
+      //newNode->next = NULL;
+      //newNode->previous = tail;
+      tail->next = newNode;
+      tail = newNode;
+    }
+    size++;
+  }
+
+  bool remove(const T &item){
+    //removes the specified item from the list
+    if (head == NULL){
+      return false;
+    }
+    if (head->data == item){
+      Node * temp = head;
+      head = head->next;
+      delete temp;
+      size--;
+      if (size == 0) {
+	tail = head;
+      }
+      return true;
+    }
+    else{
+      Node * curr = head;
+      while (curr->next != NULL && curr->next->data != item)
+	curr = curr->next;
+      if (curr->next != NULL){
+	Node * temp = curr->next;
+	curr->next = curr->next->next;
+	delete temp;
+	size--;
+	return true;
+      }
+    }
+    //return true if an item was actually removed and false if no such item existed.
+    return false;
+  } 
+
+  T& operator[](int index){
+    //gives a reference to the data in the "index" element
+    if (index < 0 || index >= size){
+      throw WrongIndex();
+    }
+    Node * curr = head;
+    for (int i = 0; i < index; i++){
+      curr = curr->next;
+    }
+    return curr->data;
+  }
+  const T& operator[](int index) const{
+    if (index < 0 && index > size){
+      throw WrongIndex();
+    }
+    Node * curr = head;
+    for (int i = 0; i < index; i++){
+      curr = curr->next;
+    }
+    return curr->data;
+  }
+  
+  int find(const T &item){
+    //returns the index of the item in the list or -1 if no such item exists
+    int count = 0;
+    Node * curr = head;
+    while(curr != NULL){
+      if (curr->data == item)
+	return count;
+      curr = curr->next;
+      count++;
+    }
+    return -1;
+  }
+  
+  LinkedList<T>& operator=(LinkedList<T> & rhs) const{
+    if (this != rhs){
+      destroy(head);
+      Node ** newNode = new Node * [rhs.size];
+      for (int i = 0; i < rhs.size; i++){
+	newNode[i] = new Node(rhs[i], NULL, NULL);
+      }
+      if (rhs.gize > 1){
+	newNode[0]->next = newNode[1];
+	newNode[rhs.size - 1]->previous = newNode[rhs.size - 2];
+	for (int i = 1; i < rhs.size - 1; i++){
+	  newNode[i]->next = newNode[i + 1];
+	  newNode[i] ->previous = newNode[i - 1];
+	}
+      }
+      head = newNode[0];
+      tail = newNode[rhs.size - 1];
+      delete[] newNode;
+    }
+    return *this;
+  }
+  
+  ~LinkedList(){
+    destroy(head);
+  }
+  void destroy(Node * n){
+    if (n != NULL){
+      destroy(n->next);
+      delete n;
+    }
+  }
+  
+  const int getSize() const{
+    return size;
+  }
+
+  //iterator methods
+  iterator begin() const{
+    iterator ans(head);
+    return ans;
+  }
+  iterator end() const{
+    iterator ans(NULL);
+    return ans;
+  }
+
+  void app(Function<void, const T&> * f) const{
+    //invoke f on each item of the list(first to last)
+    Node * curr = head;
+    while (curr != NULL){
+      f->invoke(curr->data);
+      curr = curr->next;
+    }
+  }
+
+  void update(Function<T, const T&> * f){
+    //invoke f on each item of the list
+    Node * curr = head;
+    while (curr != NULL){
+      //replace the corresponding list with the return value of f
+      curr->data = f->invoke(curr->data);
+      curr = curr->next;
+    }
+  }
+
+    template<typename R> 
+      LinkedList<R> * map(Function<R, const T&> *f) const{
+      //create a new LinkedList
+      LinkedList<R> * ll = new LinkedList<R>();
+      //each item of the returned list is determinded by invoking f
+      Node * curr = head;
+      while (curr != NULL){
+	ll->addBack(f->invoke(curr->data));
+	curr = curr->next;
+      }
+      return ll;
+    }
+};
+
+
+#endif

@@ -1,0 +1,42 @@
+Compute the Nth Fibonacci number
+
+Step 1: work an instance of the problem (domain knowledge)
+     N = 4
+     fib(0) = 0
+     fib(1) = 1
+     fib(2) = 1
+     fib(3) = 2
+     fib(4) = 3
+Step 2: write down exactly what you did (intuitively)
+     check N = 0, fib(0) = 0
+     check N = 1, fib(1) = 1
+     check N = 2, fib(2) = fib(0) + fib(1) = 1
+     check N = 3, fib(3) = fib(1) + fib(2) = 2
+     check N = 4, fib(4) = fib(2) + fib(3) = 3
+Step 3: generalize steps
+     Find the value of fib(N) 
+     for N < 0
+     fib(N) = 0
+     when N > 1
+     fib(N) = fib(N - 1) + fib(N - 2)
+     base case:
+     	  N = 0, fib(0) = 0
+     	  N = 1, fib(1) = 1
+Step 4: test generalized steps on another instance
+     N = 7
+     fib(0) = 0
+     fib(1) = 1
+     fib(2) = fib(0) + fib(1) = 1
+     fib(3) = fib(1) + fib(2) = 2
+     fib(4) = fib(2) + fib(3) = 3
+     fib(5) = fib(3) + fib(4) = 5
+     fib(6) = fib(4) + fib(5) = 8
+     fib(7) = fib(5) + fib(6) = 13
+     
+     Coner case: N < 0, N = 0, N = 1
+     N = -2
+     fib(-2) = 0
+     N = 0
+     fib(0) = 0
+     N = 1
+     fib(1) = 1

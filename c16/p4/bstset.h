@@ -1,0 +1,134 @@
+#ifndef _BSTSET_H_
+#define _BSTSET_H_
+#include "set.h"
+#include <cstdlib>
+#include <exception>
+#include <iostream>
+
+template<typename K>
+class BstSet{
+ private:
+  class BSTNode{
+  public:
+    K data;
+    BSTNode * left;
+    BSTNode * right;
+  BSTNode():data(), left(NULL), right(NULL){}
+  BSTNode(const K& d): data(d), left(NULL), right(NULL){}
+  BSTNode(const K& d, BSTNode * l, BSTNode * r):data(d),left(l),right(r){}
+  ~BSTNode(){}
+  };
+  BSTNode * root;
+ public:
+ BstSet():root(NULL){}
+  BstSet(const BstSet<K> &rhs){
+    root = copy(rhs.root);
+  }
+  BSTNode * copy(const BSTNode * node){
+    if (node == NULL)
+      return NULL;
+    BSTNode * newNode = new BSTNode(node->data);
+    if (node ->left != NULL)
+      newNode->left = copy(node->left);
+    if (node ->right != NULL)
+      newNode->right = copy(node->right);
+    return newNode;
+  }
+  BstSet<K> & operator=(const BstSet<K> &rhs){
+    assert(this != rhs);
+    clear(root);
+    root = copy(rhs.root);
+    return *this;
+  }
+  void clear(BSTNode * node){
+    if (node == NULL)
+      return;
+    if (node->left != NULL)
+      clear(node->left);
+    if(node->right != NULL)
+      clear(node->right);
+    delete node;
+  }
+  ~BstSet(){
+    clear(root);
+  }
+  virtual void add(const K & key){
+    BSTNode * bst = new BSTNode(key);
+    BSTNode ** ptr = & root;
+    while (*ptr != NULL){
+      if (key == (*ptr)->data){
+	//(*ptr)->data = key;
+	delete bst;
+	return;
+      }
+      if (key < (*ptr)->data)
+	ptr = &(*ptr)->left;
+      else
+	ptr = &(*ptr)->right;
+    }
+    *ptr = bst;
+  }
+
+  virtual bool contains(const K& key) const{
+    BSTNode * curr = root;
+    while (curr != NULL){
+      if(curr->data == key)
+	return true;
+      if (key < curr->data)
+	curr = curr->left;
+      else
+	curr = curr->right;
+    }
+    return false;
+  }
+
+  virtual void remove(const K& key){
+        root = remove(root, key);
+  }
+  BSTNode * remove(BSTNode * curr, const K& key){
+    if (curr == NULL)
+      return NULL;
+    if(curr->data == key){
+      BSTNode * temp;
+      if (curr->left == NULL){
+	temp = curr->right;
+	delete curr;
+	return temp;
+      }
+      if (curr->right == NULL){
+	temp = curr->left;
+	delete curr;
+	return temp;
+      }
+      curr->left = twoChildRm(curr->left, curr);
+      return curr;
+    }
+    if (key < curr->data)
+      curr->left = remove(curr->left, key);
+    else
+      curr->right = remove(curr->right, key);
+    return curr;
+  }
+  BSTNode * twoChildRm(BSTNode * curr, BSTNode * replace){
+    if (curr->right == NULL){
+      replace->data = curr->data;
+      BSTNode * temp = curr->left;
+      delete curr;
+      return temp;
+    }
+    curr->right = twoChildRm(curr->right, replace);
+    return curr;
+  }
+  void inOrder(){
+    inOrder(root);
+  }
+  void inOrder(BSTNode * node){
+    if (node != NULL){
+      inOrder(node->left);
+      std::cout << node->data << std::endl;
+      inOrder(node->right);
+    }
+  }
+};
+
+#endif

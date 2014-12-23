@@ -1,0 +1,63 @@
+Current directory is ~/ece551-fall2014-jd260/classwork/c08/p3/
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /home/jd260/ece551-fall2014-jd260/classwork/c08/p3/sortLines...done.
+(gdb) start
+Temporary breakpoint 1 at 0x400a24: file sortLines.c, line 51.
+Starting program: /home/jd260/ece551-fall2014-jd260/classwork/c08/p3/sortLines 
+
+Temporary breakpoint 1, main (argc=1, argv=0x7fffffffe5c8) at sortLines.c:51
+(gdb) p argc
+$1 = 1
+(gdb) n
+(gdb) n
+(gdb) s
+readLine (f=0x7ffff7dd4340, numLine=0x7fffffffe4d8) at sortLines.c:6
+(gdb) n
+(gdb) 
+(gdb) p *numLine
+$2 = 0
+(gdb) n
+apple
+(gdb) n
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+pear
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+peach
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) 
+apple
+(gdb) until
+(gdb) 
+(gdb) 
+(gdb) 
+(gdb) until
+
+
+a
+
+
+

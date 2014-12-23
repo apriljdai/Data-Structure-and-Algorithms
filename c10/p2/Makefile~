@@ -1,0 +1,6 @@
+OBJS=code.cpp code.h
+CFLASS=-pedantic -Wall -Werror -ggdb3 -std=gnu++98
+PROGRAM=code
+
+$(PROGRAM): $(OBJS)
+	g++ $(CFLASS) -o $@ $(OBJS)

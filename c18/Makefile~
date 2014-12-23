@@ -1,0 +1,9 @@
+CPPFLAGS=-pedantic -Wall -Werror -ggdb3 -std=gnu++98
+EXEC = deduplicate hash
+HASH_H = sha256.h md5.h
+HASH_CPP = sha256.cpp md5.cpp
+
+deduplicate: deduplication.cpp deduplication.h
+	g++ $(CPPFLAGS)  -o deduplicate deduplication.cpp $(CPPFLAGS)
+hash: hash.cpp deduplication.h
+	g++ $(CPPFLAGS)  -o hash hash.cpp $(HASH_CPP)

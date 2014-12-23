@@ -1,0 +1,111 @@
+System.out.println("The first Mingo called after " + count + " times guessing.");Grading p1 (worth 40 points)
+-------------------------------------------------
+This problem appears correct
+This test counts as 50% of the score for this problem
+This test was scored as correct (50)
+This problem appears correct
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+This problem appears correct
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+Percent this problem: 100 (= 40.0 / 40 points)
+------------------------------------------
+
+
+Grading p2 (worth 25 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c16/p2/test
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==25287== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25287== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+Percent this problem: 100 (= 25.0 / 25 points)
+------------------------------------------
+
+
+Grading p3 (worth 20 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c16/p3/test
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==25318== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25318== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 2     *
+***********************
+The output matches the expected output.
+==25325== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25325== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 3     *
+***********************
+Your program segfaulted.
+This test counts as 25% of the score for this problem
+This test was scored as incorrect (0)
+***********************
+* Starting test 4     *
+***********************
+Your program segfaulted.
+This test counts as 25% of the score for this problem
+This test was scored as incorrect (0)
+Percent this problem: 50 (= 10.0 / 20 points)
+------------------------------------------
+
+
+Grading p4 (worth 15 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c16/p4/test
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==25365== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25365== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 2     *
+***********************
+The output matches the expected output.
+==25372== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25372== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 3     *
+***********************
+The output matches the expected output.
+==25379== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25379== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 4     *
+***********************
+The output matches the expected output.
+==25386== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==25386== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+Percent this problem: 100 (= 15.0 / 15 points)
+------------------------------------------
+
+
+=============================================
+Overal score: 90.0

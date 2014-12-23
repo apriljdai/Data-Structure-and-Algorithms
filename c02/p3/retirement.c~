@@ -1,0 +1,55 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+struct _retire_info{
+  int month;
+  double dollorPerMon;
+  double returnRate;
+};
+
+typedef struct _retire_info retire_info;
+
+double balanceCal (double rate, double money, double contribution){
+  double answer = rate * money + contribution;
+  return answer;
+}
+
+void retirement (int startAge,   //in months
+		 double initial, //initial savings in dollars
+		 retire_info working, //info about working
+		 retire_info retired){ //info about being retired
+  //compute your retirement account balance each month while you are working
+  //calculate the account balance increase from returns (balance * rate of return) and add that to the current balance
+  for (int i = 0; i < working.month; i++){
+    int year = startAge / 12;
+    int mon = startAge % 12;
+    double balance = balanceCal(working.returnRate, initial, working.dollorPerMon);
+    //add the monthly contribution to the balance. 
+    initial += balance;
+    printf ("Age %3d month %2d you have $%.2lf\n", year, mon, initial);
+    startAge ++;
+  }
+  for (int i = 0; i < retired.month; i++){
+    int year = startAge /12;
+    int mon = startAge % 12;
+    double balance = balanceCal(retired.returnRate, initial, retired.dollorPerMon);
+    initial += balance;
+    printf ("Age %3d month %2d you have $%.2lf\n", year, mon, initial);
+    startAge ++;
+  }
+}
+
+int main (void){
+  retire_info working;
+  working.month = 489;
+  working.dollorPerMon = 1000;
+  working.returnRate = 0.045 / 12;
+  retire_info retired;
+  retired.month = 384;
+  retired.dollorPerMon = -4000;
+  retired.returnRate = 0.01 / 12;
+  int startAge = 327;
+  double initial = 21345.0;
+  retirement (startAge, initial, working, retired);
+  return EXIT_SUCCESS;
+}

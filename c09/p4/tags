@@ -1,0 +1,31 @@
+Mmain	main.c	/^int main(int argc, char ** argv) {$/
+__COUNTS_H__	counts.h	2
+__KV_H__	kv.h	2
+__OUTNAME_H__	outname.h	2
+_counts_t	counts.h	11
+_kvarray_t	kv.h	12
+_kvpair_t	kv.h	5
+_one_count_t	counts.h	3
+addCount	counts.c	/^void addCount(counts_t * c, const char * name) {$/
+array	counts.h	13
+computeOutputFileName	outname.c	/^char * computeOutputFileName(const char * inputNam/
+countFile	main.c	/^counts_t * countFile(const char * filename, kvarra/
+counts_t	counts.h	17
+createCounts	counts.c	/^counts_t * createCounts(void) {$/
+freeCounts	counts.c	/^void freeCounts(counts_t * c) {$/
+freeKVs	kv.c	/^void freeKVs(kvarray_t * pairs) {$/
+info	counts.h	5
+key	kv.h	7
+kvarray_t	kv.h	18
+kvpair_t	kv.h	10
+length	kv.h	16
+lookupValue	kv.c	/^char * lookupValue(kvarray_t * pairs, const char */
+one_count_t	counts.h	9
+pairs	kv.h	15
+printCounts	counts.c	/^void printCounts(counts_t * c, FILE * outFile) {$/
+printKVs	kv.c	/^void printKVs(kvarray_t * pairs) {$/
+readKVs	kv.c	/^kvarray_t * readKVs(const char * fname) {$/
+size	counts.h	15
+split	kv.c	/^kvpair_t * split(char * line){$/
+times	counts.h	7
+value	kv.h	8

@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char ** readLine(FILE * f, int * nline){
+  char ** data = NULL;
+  char * line = NULL;
+  size_t size;
+  while (getline(&line, &size, f) >= 0){
+    data = (char **) realloc(data, (*nline + 1) *sizeof(*data));
+    data[*nline] = malloc(strlen(line) + sizeof(line[0]));
+    strcpy(data[*nline], line);
+    (*nline)++;
+  }
+  free(line);
+  line = NULL;
+  return data;
+}
+
+void printAndFree(char ** data, int nLine){
+  if (data != NULL){
+    for (int i = 0; i < nLine; i++){
+      printf("%s", data[i]);
+      free(data[i]);
+      data[i] = NULL;
+    }
+    free(data);
+    data = NULL;
+  }
+}
+
+//This function is used to figure out the ordering
+//of the strings in qsort.  You do not need
+//to modify it.
+int stringOrder(const void * vp1, const void * vp2) {
+  const char * const * p1 = vp1;
+  const char * const * p2 = vp2;
+  return strcmp(*p1, *p2);
+  //compare two strings, returns an integer less than, equal to, or greater than 0
+}
+
+//This function will sort and print data (whose length is count).
+//array of strings: data
+//length of that array: count
+void sortData(char ** data, size_t count) {
+  qsort(data, count, sizeof(char *), stringOrder);
+}
+
+int main(int argc, char ** argv) {
+  //argc == 1
+  int numLine = 0;
+  if (argc == 1){
+    //read from standard input
+    char ** line = readLine(stdin, &numLine);
+    //sort the lines of inputs
+    sortData(line, numLine);
+    //print the results
+    //free the memory
+    printAndFree(line, numLine);
+  }
+  //argc > 1
+  if (argc > 1){
+    numLine = 0;
+    //open each file
+    for (int i = 1; i < argc; i++){
+      FILE * f = fopen(argv[i], "r");
+      //read all of the lines of data
+      if (f == NULL){
+	fprintf(stderr, "Could not open the file.");
+	return EXIT_FAILURE;
+      }
+      char ** line = readLine(f, &numLine);
+      //sort the lines
+      sortData(line, numLine);
+      //print the results
+      //free the memory
+      printAndFree(line, numLine);
+      //close the file
+      if (fclose(f) != 0){
+	fprintf(stderr, "Failed to close the input file!");
+	return EXIT_FAILURE;
+      }
+    }
+  }
+  printf("All files are sorted!\n");
+  return EXIT_SUCCESS;
+}

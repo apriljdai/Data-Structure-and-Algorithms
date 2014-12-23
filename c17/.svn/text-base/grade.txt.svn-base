@@ -1,0 +1,67 @@
+Grading p1 (worth 40 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c17/p1/testFreq
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==10373== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==10373== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 100% of the score for this problem
+This test was scored as correct (100)
+Percent this problem: 100 (= 40.0 / 40 points)
+------------------------------------------
+
+
+Grading p2 (worth 25 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c17/p2/testTree
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==10425== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==10425== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 100% of the score for this problem
+This test was scored as correct (100)
+Percent this problem: 100 (= 25.0 / 25 points)
+------------------------------------------
+
+
+Grading p3 (worth 20 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c17/p3/testMap
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==10449== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==10449== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 100% of the score for this problem
+This test was scored as correct (100)
+Percent this problem: 100 (= 20.0 / 20 points)
+------------------------------------------
+
+
+Grading p4 (worth 15 points)
+-------------------------------------------------
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c17/p4/decompress
+**Deleting executable file /home/ece551/svn/ece551-fall2014-jd260/classwork/c17/p4/compress
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==10476== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==10476== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 100% of the score for this problem
+This test was scored as correct (100)
+Percent this problem: 100 (= 15.0 / 15 points)
+------------------------------------------
+
+
+=============================================
+Overal score: 100.0

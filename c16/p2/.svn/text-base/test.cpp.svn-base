@@ -1,0 +1,48 @@
+#include <cstdlib>
+#include "function.h"
+#include "search.h"
+#include <math.h>
+#include <iostream>
+
+template<typename T>
+class SinFunction : public Function<int, int>{
+public:
+  virtual int invoke(int arg){
+    return 10000000 * (sin(arg/100000.0) - 0.5);
+  }
+};
+
+template<typename T>
+class LinearFunction : public Function<int, int>{
+public:
+  virtual int invoke(int arg){
+    return 6 * arg + 17;
+  }
+};
+
+template<typename T>
+class BoundaryFunction : public Function<int, int>{
+public:
+  virtual int invoke(int arg){
+    return 2 * arg - 3;
+  }
+};
+int main(void){
+  SinFunction<int> * sf = new SinFunction<int>();
+  int x = binarySearchForZero(sf, 0, 150000);
+  std::cout << "SinFunction from 0 to 150000, the value of x which f(x) is cloest to 0 is: " << x << std::endl;
+  delete sf;
+  LinearFunction<int> * lf = new LinearFunction<int>();
+  int y = binarySearchForZero(lf, -10, 10);
+  std::cout << "LinearFunction from -10 to 10, the value of x which f(x) is cloest to 0 is: " << y << std::endl;
+  int y1 = binarySearchForZero(lf, 0, 100);
+  std::cout << "LinearFunction from 0 to 100, the value of x which f(x) is cloest to 0 is: " << y1 << std::endl;
+  delete lf;
+  BoundaryFunction<int> * bf = new BoundaryFunction<int>();
+  int z = binarySearchForZero(bf, -20, 10);
+  std::cout << "BoundaryFunction from -20 to 10, the value of x which f(x) is cloest to 0 is: "<< z << std::endl;
+  int z1 = binarySearchForZero(bf, -50, 0);
+  std::cout << "BoundaryFunction from -50 to 0, the value of x which f(x) is cloest to 0 is: "<< z1 << std::endl;
+  delete bf;
+  return EXIT_SUCCESS;
+}

@@ -1,0 +1,125 @@
+#include "ll.h"
+#include "function.h"
+#include <cstdlib>
+#include <exception>
+#include <assert.h>
+#include <iostream>
+#include <string>
+#include <sstream>
+
+//test app function
+template<typename T>
+class PrinterFunction : public Function<void, const T&>{
+public:
+  virtual void invoke(const T& x){
+    std::cout << x << "\n";
+  }
+};
+
+//test update function
+template<typename T>
+class AddToEach : public Function<T, const T&>{
+private:
+  T v;
+public:
+  //copy constructor
+  AddToEach(T _v): v(_v){}
+  AddToEach(const AddToEach & rhs): v(rhs.v){}
+  //assignment operator
+  AddToEach & operator=(const AddToEach & rhs){
+    T * temp = new T(rhs.v);
+    delete v;
+    v = * temp;
+    return * this;
+  }
+  virtual T invoke(const T& x){
+    return x + v;
+  }
+};
+
+template<typename T>
+class ToString : public Function<std::string, const T&>{
+public:
+  virtual std::string invoke(const T& x){
+    std::ostringstream os;
+    os << "\"" << x << "\"";
+    return os.str();
+  }
+};
+
+template<typename T>
+void printList(LinkedList<T> *ptr){
+  typename LinkedList<T>::iterator it = ptr->begin();
+  while (it != ptr->end()){
+    std::cout << *it << ", ";
+    ++it;
+  }
+  std::cout << "\n";
+}
+
+
+int main(void){
+  //create a new LinkedList
+  LinkedList<int> * ll = new LinkedList<int>();
+  ll->addBack(0);
+  ll->addBack(1);
+  ll->addBack(2);
+  ll->addFront(3);
+  ll->addFront(4);
+  ll->addFront(5);
+  std::cout << "The new LinkedList ll is: ";
+  printList(ll);
+
+  //app function test
+  std::cout << "Print LinkedList ll in order:\n";
+  PrinterFunction<int> * ptr = new PrinterFunction<int>();
+  ll->app(ptr);
+  std::cout << "After app function, the LinkedList ll is now: ";
+  printList(ll);
+
+  //update function test
+  AddToEach<int> * ptr1 = new AddToEach<int>(6);
+  ll->update(ptr1);
+  std::cout << "After update function adding 6, the LinkedList ll is now: ";
+  printList(ll);
+
+  //map function test
+   ToString<int> * s = new ToString<int>();
+  LinkedList<std::string> * ll2 = ll->map(s);
+  //std::cout << "LinkedList ll is now: ";
+  //printList(ll);
+  std::cout << "After map function, the new LinkedList ll2 is: ";
+  printList(ll2);
+
+  //create a string LinkedList
+  LinkedList<std::string> *ll3 = new LinkedList<std::string>();
+  ll3->addBack("Que");
+  ll3->addBack("sera");
+  ll3->addBack("sera!");
+  ll3->addFront("be");
+  ll3->addFront("will");
+  ll3->addFront("be");
+  ll3->addFront("will");
+  ll3->addFront("Whatever");
+  std::cout << "The new string LinkedList ll3 is: ";
+  printList(ll3);
+
+  //app function test
+  PrinterFunction<std::string> *ptr2 = new PrinterFunction<std::string>();
+  ll3->app(ptr2);
+  std::cout << "After app function, the LinkedList ll3 is now: ";
+  printList(ll3);
+  
+  //update function test
+  AddToEach<std::string> * ptr3 = new AddToEach<std::string>("April");
+  ll3->update(ptr3);
+  std::cout << "After update function adding April, the LinkedList ll3 is now: ";
+  printList(ll3);
+
+  //map function test
+  ToString<std::string> * s2 = new ToString<std::string>();
+  LinkedList<std::string> *ll4 = ll3->map(s2);
+  std::cout << "After map function, the new LinkedList ll4 is: ";
+  printList(ll4);
+  return EXIT_SUCCESS;
+}

@@ -1,0 +1,115 @@
+Grading p1 (worth 40 points)
+-------------------------------------------------
+This problem appears correct
+Percent this problem: 100 (= 40.0 / 40 points)
+------------------------------------------
+
+
+Grading p2 (worth 25 points)
+-------------------------------------------------
+This problem appears correct
+Percent this problem: 100 (= 25.0 / 25 points)
+------------------------------------------
+
+
+Grading p3 (worth 20 points)
+-------------------------------------------------
+***********************
+* Starting test 1     *
+***********************
+The output matches the expected output.
+==23293== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==23293== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 2     *
+***********************
+The output matches the expected output.
+==23300== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==23300== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 3     *
+***********************
+The output matches the expected output.
+==23307== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==23307== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+***********************
+* Starting test 4     *
+***********************
+The output matches the expected output.
+==23314== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+==23314== All heap blocks were freed -- no leaks are possible
+Valgrind reported no problems
+This test counts as 25% of the score for this problem
+This test was scored as correct (25)
+Percent this problem: 100 (= 20.0 / 20 points)
+------------------------------------------
+
+
+Grading p4 (worth 15 points)
+-------------------------------------------------
+Compilation failed (make failed: make: Entering directory `/home/ece551/svn/ece551-fall2014-jd260/classwork/c15/p4'
+g++ -o ll -ggdb3 -Wall -Werror -pedantic -std=gnu++98 ll.cpp
+In file included from /usr/include/c++/4.6/bits/char_traits.h:41:0,
+                 from /usr/include/c++/4.6/ios:41,
+                 from /usr/include/c++/4.6/ostream:40,
+                 from /usr/include/c++/4.6/iostream:40,
+                 from function.h:3,
+                 from ll.h:6,
+                 from ll.cpp:1:
+/usr/include/c++/4.6/bits/stl_algobase.h: In function ‘typename __gnu_cxx::__enable_if<(! std::__is_scalar<_Tp>::__value), void>::__type std::__fill_a(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = LinkedList<std::basic_string<char> >*, _Tp = LinkedList<std::basic_string<char> >, typename __gnu_cxx::__enable_if<(! std::__is_scalar<_Tp>::__value), void>::__type = void]’:
+/usr/include/c++/4.6/bits/stl_algobase.h:722:7:   instantiated from ‘void std::fill(_ForwardIterator, _ForwardIterator, const _Tp&) [with _ForwardIterator = LinkedList<std::basic_string<char> >*, _Tp = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/vector.tcc:397:5:   instantiated from ‘void std::vector<_Tp, _Alloc>::_M_fill_insert(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<LinkedList<std::basic_string<char> >*, std::vector<LinkedList<std::basic_string<char> >, std::allocator<LinkedList<std::basic_string<char> > > > >, typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type::pointer = LinkedList<std::basic_string<char> >*, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/stl_vector.h:944:9:   instantiated from ‘void std::vector<_Tp, _Alloc>::insert(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<LinkedList<std::basic_string<char> >*, std::vector<LinkedList<std::basic_string<char> >, std::allocator<LinkedList<std::basic_string<char> > > > >, typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type::pointer = LinkedList<std::basic_string<char> >*, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/stl_vector.h:632:4:   instantiated from ‘void std::vector<_Tp, _Alloc>::resize(std::vector<_Tp, _Alloc>::size_type, std::vector<_Tp, _Alloc>::value_type) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+ll.h:291:11:   instantiated from ‘std::vector<LinkedList<T> > LinkedList<T>::split(Function<unsigned int, const T&>*) const [with T = std::basic_string<char>]’
+ll.cpp:236:78:   instantiated from here
+/usr/include/c++/4.6/bits/stl_algobase.h:676:2: error: no match for ‘operator=’ in ‘* __first = __value’
+/usr/include/c++/4.6/bits/stl_algobase.h:676:2: note: candidate is:
+ll.h:189:18: note: LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&) const [with T = std::basic_string<char>]
+ll.h:189:18: note:   no known conversion for argument 1 from ‘const LinkedList<std::basic_string<char> >’ to ‘LinkedList<std::basic_string<char> >&’
+In file included from ll.cpp:1:0:
+ll.h: In member function ‘LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&) const [with T = std::basic_string<char>]’:
+/usr/include/c++/4.6/bits/stl_algobase.h:531:6:   instantiated from ‘static _BI2 std::__copy_move_backward<false, false, std::random_access_iterator_tag>::__copy_move_b(_BI1, _BI1, _BI2) [with _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/stl_algobase.h:581:18:   instantiated from ‘_BI2 std::__copy_move_backward_a(_BI1, _BI1, _BI2) [with bool _IsMove = false, _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/stl_algobase.h:590:34:   instantiated from ‘_BI2 std::__copy_move_backward_a2(_BI1, _BI1, _BI2) [with bool _IsMove = false, _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/stl_algobase.h:625:18:   instantiated from ‘_BI2 std::copy_backward(_BI1, _BI1, _BI2) [with _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/vector.tcc:395:5:   instantiated from ‘void std::vector<_Tp, _Alloc>::_M_fill_insert(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<LinkedList<std::basic_string<char> >*, std::vector<LinkedList<std::basic_string<char> >, std::allocator<LinkedList<std::basic_string<char> > > > >, typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type::pointer = LinkedList<std::basic_string<char> >*, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/stl_vector.h:944:9:   instantiated from ‘void std::vector<_Tp, _Alloc>::insert(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<LinkedList<std::basic_string<char> >*, std::vector<LinkedList<std::basic_string<char> >, std::allocator<LinkedList<std::basic_string<char> > > > >, typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type::pointer = LinkedList<std::basic_string<char> >*, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/stl_vector.h:632:4:   instantiated from ‘void std::vector<_Tp, _Alloc>::resize(std::vector<_Tp, _Alloc>::size_type, std::vector<_Tp, _Alloc>::value_type) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+ll.h:291:11:   instantiated from ‘std::vector<LinkedList<T> > LinkedList<T>::split(Function<unsigned int, const T&>*) const [with T = std::basic_string<char>]’
+ll.cpp:236:78:   instantiated from here
+ll.h:191:7: error: no matching function for call to ‘LinkedList<std::basic_string<char> >::destroy(LinkedList<std::basic_string<char> >::Node* const&) const’
+ll.h:191:7: note: candidate is:
+ll.h:214:8: note: void LinkedList<T>::destroy(LinkedList<T>::Node*) [with T = std::basic_string<char>] <near match>
+ll.h:214:8: note:   no known conversion for implicit ‘this’ parameter from ‘const LinkedList<std::basic_string<char> >* const’ to ‘LinkedList<std::basic_string<char> >*’
+/usr/include/c++/4.6/bits/stl_algobase.h:531:6:   instantiated from ‘static _BI2 std::__copy_move_backward<false, false, std::random_access_iterator_tag>::__copy_move_b(_BI1, _BI1, _BI2) [with _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/stl_algobase.h:581:18:   instantiated from ‘_BI2 std::__copy_move_backward_a(_BI1, _BI1, _BI2) [with bool _IsMove = false, _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/stl_algobase.h:590:34:   instantiated from ‘_BI2 std::__copy_move_backward_a2(_BI1, _BI1, _BI2) [with bool _IsMove = false, _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/stl_algobase.h:625:18:   instantiated from ‘_BI2 std::copy_backward(_BI1, _BI1, _BI2) [with _BI1 = LinkedList<std::basic_string<char> >*, _BI2 = LinkedList<std::basic_string<char> >*]’
+/usr/include/c++/4.6/bits/vector.tcc:395:5:   instantiated from ‘void std::vector<_Tp, _Alloc>::_M_fill_insert(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<LinkedList<std::basic_string<char> >*, std::vector<LinkedList<std::basic_string<char> >, std::allocator<LinkedList<std::basic_string<char> > > > >, typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type::pointer = LinkedList<std::basic_string<char> >*, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/stl_vector.h:944:9:   instantiated from ‘void std::vector<_Tp, _Alloc>::insert(std::vector<_Tp, _Alloc>::iterator, std::vector<_Tp, _Alloc>::size_type, const value_type&) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::iterator = __gnu_cxx::__normal_iterator<LinkedList<std::basic_string<char> >*, std::vector<LinkedList<std::basic_string<char> >, std::allocator<LinkedList<std::basic_string<char> > > > >, typename std::_Vector_base<_Tp, _Alloc>::_Tp_alloc_type::pointer = LinkedList<std::basic_string<char> >*, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+/usr/include/c++/4.6/bits/stl_vector.h:632:4:   instantiated from ‘void std::vector<_Tp, _Alloc>::resize(std::vector<_Tp, _Alloc>::size_type, std::vector<_Tp, _Alloc>::value_type) [with _Tp = LinkedList<std::basic_string<char> >, _Alloc = std::allocator<LinkedList<std::basic_string<char> > >, std::vector<_Tp, _Alloc>::size_type = long unsigned int, std::vector<_Tp, _Alloc>::value_type = LinkedList<std::basic_string<char> >]’
+ll.h:291:11:   instantiated from ‘std::vector<LinkedList<T> > LinkedList<T>::split(Function<unsigned int, const T&>*) const [with T = std::basic_string<char>]’
+ll.cpp:236:78:   instantiated from here
+ll.h:204:7: error: assignment of member ‘LinkedList<std::basic_string<char> >::head’ in read-only object
+ll.h:205:7: error: assignment of member ‘LinkedList<std::basic_string<char> >::tail’ in read-only object
+ll.h:208:13: error: invalid initialization of reference of type ‘LinkedList<std::basic_string<char> >&’ from expression of type ‘const LinkedList<std::basic_string<char> >’
+ll.h:209:3: error: control reaches end of non-void function [-Werror=return-type]
+cc1plus: all warnings being treated as errors
+make: *** [ll] Error 1
+make: Leaving directory `/home/ece551/svn/ece551-fall2014-jd260/classwork/c15/p4'): skipping all tests
+Percent this problem: 0 (= 0 / 15 points)
+------------------------------------------
+
+
+=============================================
+Overal score: 85.0

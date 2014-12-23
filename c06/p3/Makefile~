@@ -1,0 +1,3 @@
+CFLAGS=-Wall -Werror -std=gnu99 -pedantic
+decipher:decipher.c
+	gcc $(CFLAGS) -o decipher -ggdb3 decipher.c

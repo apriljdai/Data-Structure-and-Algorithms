@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cstdlib>
+#include "map.h"
+#include "bstmap.h"
+#include <exception>
+#include <string.h>
+
+int main(void){
+  BstMap<int, std::string> *bst = new BstMap<int, std::string>();
+  //test for add function
+  bst->add(3, "will");
+  bst->add(1, "Whatever");
+  bst->add(5, "Que");
+  bst->add(4, "be");
+  bst->add(7, "Sera");
+  bst->add(2, "be");
+  bst->add(9, "Sera!");
+  std::cout << "The new BST map inorder is: "<<std::endl;
+  bst->printBSTInOrder();
+  std::cout << "The pre-order BST map is: "<<std::endl;
+  bst->printBSTPreOrder();
+  std::cout << "The post-order BST map is: "<<std::endl;
+  bst->printBSTPostOrder();
+  bst->add(5, "April");
+  std::cout << "The value of key = 5 is: " << bst->lookup(5) << std::endl;
+  std::cout << "Now the BST map inorder is: "<< std::endl;
+  bst->printBSTInOrder();
+  //test for lookup function
+  std::string s1 = bst->lookup(5);
+  std::cout << "The value of key = 5 is: " << s1 << std::endl;
+  std::string s2 = bst->lookup(1);
+  std::cout << "The value of key = 1 is: " << s2 << std::endl;
+  std::string s3 = bst->lookup(7);
+  std::cout << "The value of key = 7 is: " << s3 << std::endl;
+  //std::string s4 = bst->lookup(10);
+  //std::cout << "The value of key = 9 is: " << s4 << std::endl;
+  //test for remove function
+  bst->remove(1);
+  bst->remove(2);
+  std::cout << "After remove key = 1 and 2, the BST is now: "<<std::endl;
+  bst->printBSTInOrder();
+  delete bst;
+  return EXIT_SUCCESS;
+}
